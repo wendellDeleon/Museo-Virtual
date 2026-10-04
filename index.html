@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Museo Virtual - Claude Monet e Impresionismo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <h1>Museo Virtual: Obras Maestras de Claude Monet</h1>
+    <p>Galería interactiva con la API del Art Institute of Chicago</p>
+  </header>
+
+  <main class="container">
+    <section class="controls-section">
+      <form id="search-form" class="search-form" novalidate>
+        <div class="input-group">
+          <input 
+            type="text" 
+            id="search-input" 
+            value="Monet" 
+            placeholder="Buscar Monet, Renoir, Impressionism..." 
+            required
+          >
+          <button type="submit" id="btn-search">Buscar</button>
+        </div>
+        <p id="validation-msg" class="validation-msg hidden"></p>
+
+        <div class="filters-group">
+          <label>
+            <input type="checkbox" id="public-domain-filter"> 
+            Solo dominio público
+          </label>
+        </div>
+      </form>
+    </section>
+
+    <section id="status-container" class="status-container" aria-live="polite">
+      <p id="status-message" class="status-message hidden"></p>
+    </section>
+
+    <nav class="pagination-nav">
+      <button id="btn-prev" disabled>&laquo; Anterior</button>
+      <span id="page-info">Página 1</span>
+      <button id="btn-next">Siguiente &raquo;</button>
+    </nav>
+
+    <section class="gallery-section">
+      <div id="gallery-grid" class="gallery-grid"></div>
+    </section>
+
+    <section id="detail-modal" class="modal hidden" aria-hidden="true">
+      <div class="modal-content">
+        <button id="btn-close-modal" class="close-btn">&times;</button>
+        <div id="detail-body"></div>
+      </div>
+    </section>
+
+    <section class="favorites-section">
+      <h2>Mis Obras Favoritas</h2>
+      <div id="favorites-grid" class="gallery-grid"></div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <p>Proyecto Museo Virtual &copy; 2026. Datos provistos por la API del Art Institute of Chicago.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
